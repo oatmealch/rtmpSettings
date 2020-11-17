@@ -1,0 +1,19 @@
+rtmp {
+        server {
+                listen 1935;
+                chunk_size 4096;
+
+                application live {
+                        live on;
+			record all;
+			record_path /the_path;
+			record_suffix _%Y%m%d_%H%M%S.flv;
+
+#		twitch seoul
+			push rtmp://live-sel.twitch.tv/app/the_twitch_live_key;
+
+#		youtube
+			push rtmp://x.rtmp.youtube.com/live2/the_youtube_live_key;
+
+               }
+       }
